@@ -26,7 +26,7 @@ This repository contains two parts:
 2. Create and activate a Python environment.
 
 ```powershell
-cd c:\Users\tuana\rag\rag\backend
+cd c:\Users\[username]\rag\backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```

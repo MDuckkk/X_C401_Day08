@@ -1,48 +1,35 @@
 === SUMMARY ===
 Metric,Baseline,Variant,Delta
-faithfulness,4.40,4.90,+0.50
-relevance,4.40,4.60,+0.20
+faithfulness,4.20,4.50,+0.30
+relevance,4.60,4.60,+0.00
 context_recall,5.00,5.00,+0.00
-completeness,3.90,3.90,+0.00
+completeness,3.80,3.60,-0.20
 
 === PER-QUESTION ===
 id,query,baseline_answer,variant_answer,baseline_faithfulness,baseline_relevance,baseline_context_recall,baseline_completeness,variant_faithfulness,variant_relevance,variant_context_recall,variant_completeness,delta_faithfulness,delta_relevance,delta_context_recall,delta_completeness,better
-q01,SLA xử lý ticket P1 là bao lâu?,SLA xử lý ticket P1 là 4 giờ để khắc phục và 15 phút để phản hồi ban đầu kể từ khi ticket được tạo [1].,SLA xử lý ticket P1 là 4 giờ để khắc phục và 15 phút để phản hồi ban đầu kể từ khi ticket được tạo [1].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
-q02,Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?,Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].,Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
-q03,Ai phải phê duyệt để cấp quyền Level 3?,"Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].","Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].",5,5,5,5,5,5,5,5,0,0,0,0,Tie
-q04,Sản phẩm kỹ thuật số có được hoàn tiền không?,"Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].","Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",3,5,5,3,4,5,5,3,1,0,0,0,Variant
-q05,Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?,"Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp. Để mở khóa, liên hệ IT Helpdesk hoặc tự reset qua portal SSO [1].",Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp [2].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
-q06,Escalation trong sự cố P1 diễn ra như thế nào?,"Escalation trong sự cố P1 diễn ra như sau:
-
-1. On-call engineer nhận alert hoặc ticket và xác nhận severity trong 5 phút.
-2. Nếu không có phản hồi trong 10 phút, ticket sẽ tự động escalate lên Senior Engineer.
-3. Lead Engineer phân công engineer xử lý trong 10 phút.
-4. Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm, sẽ escalate ngay.
-
-Quy trình này đảm bảo rằng sự cố P1 được xử lý kịp thời và hiệu quả [2][3].","Escalation trong sự cố P1 diễn ra như sau:
-
-1. On-call engineer nhận alert hoặc ticket và xác nhận severity trong 5 phút.
-2. Nếu không có phản hồi trong 10 phút, ticket sẽ tự động escalate lên Senior Engineer.
-3. Lead Engineer phân công engineer xử lý trong 10 phút.
-4. Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm, sẽ escalate ngay.
-
-Quy trình này đảm bảo rằng sự cố P1 được xử lý kịp thời và hiệu quả [2][3].",5,5,5,4,5,5,5,4,0,0,0,0,Tie
-q07,Approval Matrix để cấp quyền hệ thống là tài liệu nào?,"Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty, áp dụng cho tất cả nhân viên, contractor, và third-party vendor [1].","Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty, áp dụng cho tất cả nhân viên, contractor, và third-party vendor [2].",5,5,5,2,5,5,5,2,0,0,0,0,Tie
-q08,Nhân viên được làm remote tối đa mấy ngày mỗi tuần?,Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc [1].,Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc [1].,5,5,5,4,5,5,5,4,0,0,0,0,Tie
-q09,ERR-403-AUTH là lỗi gì và cách xử lý?,"ERR-403-AUTH là lỗi liên quan đến quyền truy cập. Tuy nhiên, thông tin cụ thể về cách xử lý lỗi này không có trong ngữ cảnh đã cung cấp. Do đó, tôi không biết cách xử lý lỗi ERR-403-AUTH.","ERR-403-AUTH là lỗi liên quan đến việc xác thực quyền truy cập, thường xảy ra khi người dùng không có quyền truy cập vào tài nguyên yêu cầu. Để xử lý lỗi này, người dùng có thể kiểm tra lại thông tin đăng nhập, đảm bảo rằng họ có quyền truy cập cần thiết hoặc liên hệ với quản trị viên hệ thống để được hỗ trợ.",1,3,,3,5,5,,4,4,2,0,1,Variant
-q10,"Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Tôi không biết.,"Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Do đó, tôi không biết.",5,1,5,3,5,1,5,2,0,0,0,-1,Baseline
+gq01,SLA xử lý ticket P1 đã thay đổi như thế nào so với phiên bản trước?,SLA xử lý ticket P1 đã thay đổi từ 6 giờ xuống 4 giờ trong phiên bản mới nhất [1].,SLA xử lý ticket P1 đã thay đổi từ 6 giờ xuống 4 giờ cho việc khắc phục (resolution) trong phiên bản mới [1].,5,5,5,4,5,5,5,4,0,0,0,0,Tie
+gq02,"Khi làm việc remote, tôi phải dùng VPN và được kết nối trên tối đa bao nhiêu thiết bị?",Bạn có thể kết nối VPN trên tối đa 2 thiết bị cùng lúc [1].,Bạn có thể kết nối VPN trên tối đa 2 thiết bị cùng lúc [3].,5,5,5,3,5,5,5,3,0,0,0,0,Tie
+gq03,Đơn hàng mua trong chương trình Flash Sale và đã kích hoạt sản phẩm có được hoàn tiền không?,Đơn hàng đã áp dụng mã giảm giá đặc biệt theo chương trình khuyến mãi Flash Sale và sản phẩm đã được kích hoạt sẽ không được hoàn tiền [1].,Đơn hàng đã áp dụng mã giảm giá đặc biệt theo chương trình khuyến mãi Flash Sale và sản phẩm đã được kích hoạt sẽ không được hoàn tiền [1].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
+gq04,"Nếu chọn nhận store credit thay vì hoàn tiền, tôi được bao nhiêu phần trăm so với số tiền gốc?","Nếu chọn nhận store credit, bạn sẽ được 110% so với số tiền gốc [1].","Nếu chọn nhận store credit, bạn sẽ nhận được giá trị 110% so với số tiền gốc [1].",5,5,5,5,5,5,5,5,0,0,0,0,Tie
+gq05,"Contractor từ bên ngoài công ty có thể được cấp quyền Admin Access không? Nếu có, cần bao nhiêu ngày và có yêu cầu đặc biệt gì?","Có, contractor từ bên ngoài công ty có thể được cấp quyền Admin Access. Thời gian xử lý là 5 ngày làm việc và yêu cầu thêm là phải hoàn thành training bắt buộc về security policy [2].","Có, contractor từ bên ngoài công ty có thể được cấp quyền Admin Access. Quy trình yêu cầu mất khoảng 1 ngày làm việc để được phê duyệt bởi Line Manager, sau đó IT Admin sẽ kiểm tra compliance và cấp quyền. Không có yêu cầu đặc biệt nào được nêu rõ trong tài liệu [2].",1,5,5,4,4,5,5,2,3,0,0,-2,Variant
+gq06,"Lúc 2 giờ sáng xảy ra sự cố P1, on-call engineer cần cấp quyền tạm thời cho một engineer xử lý incident. Quy trình cụ thể như thế nào và quyền này tồn tại bao lâu?","Quy trình cấp quyền tạm thời cho engineer trong sự cố P1 như sau: On-call IT Admin có thể cấp quyền tạm thời (tối đa 24 giờ) sau khi được Tech Lead phê duyệt bằng lời. Sau 24 giờ, phải có ticket chính thức hoặc quyền sẽ bị thu hồi tự động. Tất cả quyền tạm thời phải được ghi log vào hệ thống Security Audit [1].","Quy trình cấp quyền tạm thời trong sự cố P1 như sau: On-call IT Admin có thể cấp quyền tạm thời (tối đa 24 giờ) sau khi được Tech Lead phê duyệt bằng lời. Sau 24 giờ, phải có ticket chính thức hoặc quyền sẽ bị thu hồi tự động. Tất cả quyền tạm thời phải được ghi log vào hệ thống Security Audit [1].",5,5,5,4,5,5,5,4,0,0,0,0,Tie
+gq07,Công ty sẽ phạt bao nhiêu nếu team IT vi phạm cam kết SLA P1?,Tôi không biết.,Tôi không biết.,1,1,,1,1,1,,1,0,0,0,0,Tie
+gq08,Nhân viên phải báo trước bao nhiêu ngày để xin nghỉ phép năm? Con số này có giống với số ngày cần giấy tờ khi nghỉ ốm không?,"Nhân viên phải báo trước ít nhất 3 ngày làm việc để xin nghỉ phép năm [2]. Số ngày cần giấy tờ khi nghỉ ốm là nếu nghỉ trên 3 ngày liên tiếp [1], do đó con số này không giống nhau.","Nhân viên phải báo trước ít nhất 3 ngày làm việc để xin nghỉ phép năm. Đối với nghỉ ốm, nhân viên cần thông báo trước 9:00 sáng ngày nghỉ, và nếu nghỉ trên 3 ngày liên tiếp thì cần giấy tờ y tế. Con số này không giống nhau [1][2].",5,5,5,4,5,5,5,3,0,0,0,-1,Baseline
+gq09,"Mật khẩu tài khoản công ty cần đổi định kỳ không? Nếu có, hệ thống sẽ nhắc nhở trước bao nhiêu ngày và đổi qua đâu?","Có, mật khẩu phải được thay đổi mỗi 90 ngày. Hệ thống sẽ nhắc nhở 7 ngày trước khi hết hạn [1].","Có, mật khẩu cần thay đổi định kỳ mỗi 90 ngày. Hệ thống sẽ nhắc nhở 7 ngày trước khi hết hạn [1].",5,5,5,3,5,5,5,4,0,0,0,1,Variant
+gq10,Chính sách hoàn tiền hiện tại áp dụng cho đơn hàng đặt trước ngày 01/02/2026 không?,Chính sách hoàn tiền hiện tại không áp dụng cho đơn hàng đặt trước ngày 01/02/2026. Các đơn hàng đặt trước ngày này sẽ áp dụng theo chính sách hoàn tiền phiên bản 3 [1].,Chính sách hoàn tiền hiện tại không áp dụng cho đơn hàng đặt trước ngày 01/02/2026. Các đơn hàng đặt trước ngày này sẽ áp dụng theo chính sách hoàn tiền phiên bản 3 [1].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
 
 === ANALYSIS ===
 explanation
 ### Tóm tắt
-"Variant `variant_hybrid_rerank` tốt hơn baseline `baseline_dense` ở hai metric: faithfulness (+0.50) và relevance (+0.20). Tuy nhiên, cả hai cấu hình đều có điểm số giống nhau ở metric context_recall (5.00) và completeness (3.90)."
+"Variant hybrid_rerank có điểm số cao hơn baseline dense về độ trung thực (faithfulness) với delta +0.30 (4.50 so với 4.20). Tuy nhiên, về độ liên quan (relevance) và khả năng hồi tưởng ngữ cảnh (context recall), cả hai cấu hình đều đạt điểm 4.60 và 5.00, không có sự khác biệt. Đối với độ hoàn chỉnh (completeness), variant lại thấp hơn với delta -0.20 (3.60 so với 3.80)."
 ""
 ### Phân tích câu hỏi
-"- **Câu hỏi thắng**: Qq04 (variant: 4/5/5/3, baseline: 3/5/5/3) cho thấy variant cải thiện faithfulness. Qq09 (variant: 5/5/None/4, baseline: 1/3/None/3) cho thấy sự cải thiện rõ rệt ở tất cả các metric có thể đo lường."
-"- **Câu hỏi thua**: Qq10 (variant: 5/1/5/2, baseline: 5/1/5/3) cho thấy variant giảm completeness từ 3 xuống 2, mặc dù không ảnh hưởng đến các metric khác."
+- **Câu thắng**: Qgq05 (variant thắng với 4/5/5/2 so với 1/5/5/4) và Qgq09 (variant thắng với 5/5/5/4 so với 5/5/5/3).
+- **Câu thua**: Qgq08 (baseline thắng với 5/5/5/4 so với 5/5/5/3).
+"- **Giải thích**: Qgq05 cho thấy variant cải thiện độ trung thực nhưng giảm độ hoàn chỉnh, có thể do việc tái xếp hạng (rerank) làm giảm thông tin đầy đủ. Qgq09 cho thấy variant cải thiện độ hoàn chỉnh, trong khi Qgq08 cho thấy không có sự cải thiện nào."
 ""
 ### Giải thích biến đã thay đổi
-Cấu hình `variant_hybrid_rerank` có thể đã cải thiện khả năng faithfulness và relevance nhờ vào việc kết hợp các phương pháp khác nhau (hybrid) và sắp xếp lại kết quả (rerank). Điều này giúp tăng cường độ chính xác và độ tin cậy của thông tin được cung cấp.
+"Cấu hình hybrid/rerank/query transform có thể đã cải thiện độ trung thực thông qua việc tối ưu hóa cách sắp xếp và chọn lọc thông tin, nhưng có thể đã làm giảm độ hoàn chỉnh do việc tập trung vào các thông tin có độ tin cậy cao hơn mà không đảm bảo đầy đủ."
 ""
 ### Kết luận
-"Dựa trên kết quả A/B test, nên sử dụng cấu hình `variant_hybrid_rerank` cho production vì nó cho thấy sự cải thiện đáng kể về faithfulness và relevance, điều này có thể nâng cao trải nghiệm người dùng và độ tin cậy của hệ thống."
+"Dựa trên kết quả, nếu ưu tiên độ trung thực, nên xem xét sử dụng variant hybrid_rerank. Tuy nhiên, cần cải thiện độ hoàn chỉnh trước khi triển khai cho sản xuất. Nếu độ hoàn chỉnh là ưu tiên hàng đầu, baseline dense vẫn là lựa chọn tốt hơn."

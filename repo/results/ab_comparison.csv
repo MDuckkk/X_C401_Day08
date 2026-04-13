@@ -1,0 +1,85 @@
+id,category,query,answer,expected_answer,faithfulness,faithfulness_notes,relevance,relevance_notes,context_recall,context_recall_notes,completeness,completeness_notes,config_label
+Q01,SLA,SLA xử lý ticket P1 là bao lâu?,"SLA xử lý ticket P1 là như sau:
+
+- Phản hồi ban đầu (first response): 15 phút kể từ khi ticket được tạo.
+- Xử lý và khắc phục (resolution): 4 giờ.
+- Escalation: Tự động escalate lên Senior Engineer nếu không có phản hồi trong 10 phút.
+- Thông báo stakeholder: Ngay khi nhận ticket, update mỗi 30 phút cho đến khi resolve. 
+
+(Nguồn: SLA_P1_2026)",Ticket P1 phải được phản hồi trong vòng 15 phút và giải quyết trong 4 giờ.,5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the SLA processing details for ticket P1 without any unsupported claims.",5,"The answer directly and fully provides the SLA details for handling P1 tickets, including response times and escalation procedures.",0,Retrieved: 0/1 expected sources. Missing: ['sla-p1-2026.pdf'],4,"The model answer provides the correct response time for initial feedback and resolution but includes additional details about escalation and stakeholder notification, which are minor points not present in the expected answer.",baseline_dense
+Q02,Policy,Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?,"Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng, với điều kiện sản phẩm bị lỗi do nhà sản xuất và đơn hàng chưa được sử dụng hoặc chưa bị mở seal. 
+
+(Nguồn: POLICY_REFUND_V4)",Khách hàng có thể yêu cầu hoàn tiền trong 30 ngày kể từ ngày mua.,5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the conditions for requesting a refund without any unsupported claims.",5,The answer directly and fully addresses the query about the timeframe for requesting a refund.,0,Retrieved: 0/1 expected sources. Missing: ['refund-v4.pdf'],1,"Model answer provides incorrect information about the refund period and conditions, missing the core content of the expected answer.",baseline_dense
+Q03,Access Control,Ai phải phê duyệt để cấp quyền Level 3?,"Để cấp quyền Level 3, yêu cầu phải được phê duyệt bởi:
+
+- Line Manager
+- IT Admin
+- IT Security
+
+(Nguồn: ACCESS_CONTROL_SOP)",Cấp quyền Level 3 cần được phê duyệt bởi quản lý trực tiếp và IT Security Manager.,5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the approval requirements for Level 3 access as stated in the ACCESS_CONTROL_SOP.",5,The answer directly and fully addresses the query by listing the required approvals for granting Level 3 access.,0,Retrieved: 0/1 expected sources. Missing: ['access-control-sop.pdf'],2,Model answer misses the specific mention of 'IT Security Manager' and incorrectly includes 'IT Admin' instead.,baseline_dense
+Q04,Password,Cách reset mật khẩu như thế nào?,"Để reset mật khẩu, bạn có thể thực hiện theo các bước sau:
+
+1. Truy cập vào đường link: https://sso.company.internal/reset.
+2. Hoặc bạn có thể liên hệ Helpdesk qua số nội bộ ext. 9000.
+
+Mật khẩu mới sẽ được gửi qua email công ty trong vòng 5 phút. 
+
+(Nguồn: IT_HELPDESK_FAQ)","Để reset mật khẩu, vào portal self-service hoặc liên hệ IT Helpdesk.",5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the information about resetting the password and the process involved without any unsupported claims.",5,"The answer directly and fully explains how to reset the password, providing specific steps and additional information.",0,Retrieved: 0/1 expected sources. Missing: ['helpdesk-faq.md'],4,"The model answer provides a detailed method for resetting the password and includes additional information about receiving the new password via email, but it misses mentioning the self-service portal as an option.",baseline_dense
+Q05,Network,Quy trình xử lý sự cố mạng là gì?,Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,"Kiểm tra kết nối vật lý, restart router/switch, kiểm tra cấu hình VLAN, escalate nếu chưa giải quyết được.",2,"The answer suggests creating a ticket or contacting IT Helpdesk for support, which is a reasonable action, but it does not directly reference the specific procedures outlined in the retrieved chunks regarding how to handle issues or requests, leading to unsupported statements.",1,The answer does not address the query about the network incident handling process.,0,Retrieved: 0/1 expected sources. Missing: ['network-troubleshoot.pdf'],1,Model answer does not address any of the key points in the expected answer regarding the network troubleshooting process.,baseline_dense
+Q06,Software,"Tôi cần cài phần mềm mới trên máy công ty, quy trình như thế nào?","Để cài phần mềm mới trên máy công ty, bạn cần thực hiện theo quy trình sau:
+
+1. Gửi yêu cầu qua hệ thống Jira trong project IT-SOFTWARE.
+2. Yêu cầu cần được phê duyệt bởi Line Manager trước khi IT tiến hành cài đặt.
+
+(Nguồn: IT_HELPDESK_FAQ)","Tạo yêu cầu trên hệ thống, quản lý phê duyệt, IT cài đặt trong 2 ngày làm việc.",5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the process for installing new software as described in the IT_HELPDESK_FAQ.",5,The answer directly and fully outlines the process for installing new software on the company machine.,0,Retrieved: 0/1 expected sources. Missing: ['software-install-policy.pdf'],4,The model answer misses the specific timeframe of 'cài đặt trong 2 ngày làm việc' which is a minor but important detail.,baseline_dense
+Q07,Error Code,ERR-403-AUTH là lỗi gì?,Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,Không đủ dữ liệu để trả lời.,1,The answer does not reference any of the retrieved chunks and suggests actions not supported by the provided information.,1,The answer does not address the query about the ERR-403-AUTH error at all.,,No expected sources,1,Model answer does not address the query about ERR-403-AUTH and provides irrelevant information instead.,baseline_dense
+Q08,VPN,"VPN company bị lỗi kết nối, phải làm sao?","Nếu bạn bị mất kết nối VPN, hãy thực hiện các bước sau:
+
+1. Kiểm tra kết nối Internet của bạn trước.
+2. Nếu vẫn gặp lỗi, hãy tạo ticket P3 với log file VPN đính kèm để được hỗ trợ.
+
+(Nguồn: IT_HELPDESK_FAQ)","Kiểm tra kết nối internet, kiểm tra credential, thử reconnect, liên hệ IT nếu vẫn lỗi.",5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the steps to take if the VPN connection is lost without any unsupported claims.",5,"The answer directly addresses the user's query about what to do when experiencing a VPN connection issue, providing clear steps to follow.",0,Retrieved: 0/1 expected sources. Missing: ['vpn-guide.pdf'],2,"Model answer misses key points such as checking credentials, trying to reconnect, and contacting IT for support.",baseline_dense
+Q09,Security,Chính sách bảo mật dữ liệu của công ty là gì?,Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,"Dữ liệu phải được mã hóa, không chia sẻ ra ngoài, tuân thủ quy trình phân loại dữ liệu.",1,"The answer claims that the information is not found in the retrieved chunks, which contradicts the content of the chunks that provide specific policies and procedures related to refunds and IT helpdesk support.",1,The answer does not address the query about the company's data privacy policy.,0,Retrieved: 0/1 expected sources. Missing: ['data-security-policy.pdf'],1,Model answer does not address any of the core content regarding data privacy policies.,baseline_dense
+Q10,Printer,"Máy in văn phòng không in được, khắc phục thế nào?",Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,"Kiểm tra kết nối, kiểm tra giấy và mực, restart máy in, cài lại driver nếu cần.",3,"The answer suggests creating a ticket or contacting IT Helpdesk for support, which is partially grounded in the retrieved chunks. However, it does not directly reference the specific information available in the chunks regarding how to contact IT Helpdesk or the ticketing process, leading to some unsupported details.",1,The answer does not address the query about troubleshooting a printer issue.,0,Retrieved: 0/1 expected sources. Missing: ['printer-troubleshoot.md'],1,Model answer does not address any of the key points related to troubleshooting the printer issue.,baseline_dense
+Q01,SLA,SLA xử lý ticket P1 là bao lâu?,"SLA xử lý ticket P1 là như sau:
+
+- Phản hồi ban đầu (first response): 15 phút kể từ khi ticket được tạo.
+- Xử lý và khắc phục (resolution): 4 giờ.
+- Escalation: Tự động escalate lên Senior Engineer nếu không có phản hồi trong 10 phút.
+- Thông báo stakeholder: Ngay khi nhận ticket, update mỗi 30 phút cho đến khi resolve.
+
+(Nguồn: SLA_P1_2026)",Ticket P1 phải được phản hồi trong vòng 15 phút và giải quyết trong 4 giờ.,5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the SLA for handling P1 tickets without any unsupported claims.",5,"The answer directly and fully provides the SLA details for handling P1 tickets, including response time, resolution time, escalation process, and stakeholder notification.",0,Retrieved: 0/1 expected sources. Missing: ['sla-p1-2026.pdf'],4,"The model answer provides the correct response time for initial feedback and resolution but includes additional details about escalation and stakeholder notification, which are minor points not required in the expected answer.",variant_hybrid_rerank
+Q02,Policy,Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?,"Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng, với điều kiện sản phẩm bị lỗi do nhà sản xuất và đơn hàng chưa được sử dụng hoặc chưa bị mở seal.
+
+(Nguồn: POLICY_REFUND_V4)",Khách hàng có thể yêu cầu hoàn tiền trong 30 ngày kể từ ngày mua.,5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the conditions for requesting a refund as stated in the policy.",5,The answer directly and fully addresses the query about the timeframe for requesting a refund.,0,Retrieved: 0/1 expected sources. Missing: ['refund-v4.pdf'],1,Model answer provides incorrect information and does not address the expected timeframe of 30 days for refund requests.,variant_hybrid_rerank
+Q03,Access Control,Ai phải phê duyệt để cấp quyền Level 3?,"Để cấp quyền Level 3, yêu cầu phải được phê duyệt bởi:
+
+- Line Manager
+- IT Admin
+- IT Security
+
+(Nguồn: ACCESS_CONTROL_SOP)",Cấp quyền Level 3 cần được phê duyệt bởi quản lý trực tiếp và IT Security Manager.,5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the approval requirements for Level 3 access as stated in the ACCESS_CONTROL_SOP.",5,The answer directly and fully addresses the query by listing the required approvals for granting Level 3 access.,0,Retrieved: 0/1 expected sources. Missing: ['access-control-sop.pdf'],2,Model answer misses the specific mention of 'IT Security Manager' and incorrectly includes 'IT Admin' instead.,variant_hybrid_rerank
+Q04,Password,Cách reset mật khẩu như thế nào?,"Để reset mật khẩu, bạn có thể thực hiện theo các bước sau:
+
+1. Truy cập vào đường link: https://sso.company.internal/reset.
+2. Hoặc bạn có thể liên hệ Helpdesk qua số nội bộ ext. 9000.
+
+Mật khẩu mới sẽ được gửi qua email công ty trong vòng 5 phút. 
+
+(Nguồn: IT_HELPDESK_FAQ)","Để reset mật khẩu, vào portal self-service hoặc liên hệ IT Helpdesk.",5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the information about resetting the password without any unsupported claims.",5,"The answer directly and fully explains how to reset the password, providing specific steps and additional information.",0,Retrieved: 0/1 expected sources. Missing: ['helpdesk-faq.md'],4,"The model answer provides a detailed method for resetting the password and includes additional information about receiving the new password via email, but it misses mentioning the self-service portal as an option.",variant_hybrid_rerank
+Q05,Network,Quy trình xử lý sự cố mạng là gì?,Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,"Kiểm tra kết nối vật lý, restart router/switch, kiểm tra cấu hình VLAN, escalate nếu chưa giải quyết được.",1,"The answer claims that the information is not found in the documents, which contradicts the detailed SLA information provided in the retrieved chunks regarding incident handling and ticket processing.",1,The answer does not address the query about the network incident handling process at all.,0,Retrieved: 0/1 expected sources. Missing: ['network-troubleshoot.pdf'],1,Model answer does not address any of the key points in the expected answer and instead suggests contacting support.,variant_hybrid_rerank
+Q06,Software,"Tôi cần cài phần mềm mới trên máy công ty, quy trình như thế nào?","Để cài phần mềm mới trên máy công ty, bạn cần thực hiện theo quy trình sau:
+
+1. Gửi yêu cầu qua hệ thống Jira trong project IT-SOFTWARE.
+2. Yêu cầu cần được phê duyệt bởi Line Manager trước khi IT tiến hành cài đặt.
+
+(Nguồn: IT_HELPDESK_FAQ)","Tạo yêu cầu trên hệ thống, quản lý phê duyệt, IT cài đặt trong 2 ngày làm việc.",5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the process for installing new software as outlined in the IT_HELPDESK_FAQ.",5,The answer directly and fully outlines the process for installing new software on the company machine.,0,Retrieved: 0/1 expected sources. Missing: ['software-install-policy.pdf'],4,"The model answer covers the main steps of the process but misses the specific timeframe for IT installation, which is an important point.",variant_hybrid_rerank
+Q07,Error Code,ERR-403-AUTH là lỗi gì?,Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,Không đủ dữ liệu để trả lời.,1,"The answer contradicts the retrieved chunks, which provide specific information about SLA handling and access control processes. The claim of not finding information is unsupported.",1,The answer does not address the query about the ERR-403-AUTH error at all.,,No expected sources,1,Model answer does not address the query about ERR-403-AUTH and provides unrelated information.,variant_hybrid_rerank
+Q08,VPN,"VPN company bị lỗi kết nối, phải làm sao?","Nếu bạn bị mất kết nối VPN, hãy thực hiện các bước sau:
+
+1. Kiểm tra kết nối Internet của bạn trước.
+2. Nếu vẫn gặp lỗi, hãy tạo ticket P3 với log file VPN đính kèm để được hỗ trợ.
+
+(Nguồn: IT_HELPDESK_FAQ)","Kiểm tra kết nối internet, kiểm tra credential, thử reconnect, liên hệ IT nếu vẫn lỗi.",5,"The answer is completely grounded in the retrieved chunks, accurately reflecting the steps to take if the VPN connection is lost without any unsupported claims.",5,"The answer directly addresses the user's query about what to do when experiencing a VPN connection issue, providing clear steps to follow.",0,Retrieved: 0/1 expected sources. Missing: ['vpn-guide.pdf'],2,"Model answer misses key points such as checking credentials, trying to reconnect, and contacting IT for further assistance.",variant_hybrid_rerank
+Q09,Security,Chính sách bảo mật dữ liệu của công ty là gì?,Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,"Dữ liệu phải được mã hóa, không chia sẻ ra ngoài, tuân thủ quy trình phân loại dữ liệu.",1,"The answer is mostly hallucinated as it does not reference any of the retrieved chunks, which contain specific policies and procedures. It fails to provide any grounded information from the provided documents.",1,The answer does not address the query about the company's data privacy policy.,0,Retrieved: 0/1 expected sources. Missing: ['data-security-policy.pdf'],1,Model answer does not address any of the core content regarding data security policies.,variant_hybrid_rerank
+Q10,Printer,"Máy in văn phòng không in được, khắc phục thế nào?",Tôi không tìm thấy thông tin này trong tài liệu hiện có. Bạn vui lòng tạo ticket hoặc liên hệ IT Helpdesk để được hỗ trợ thêm.,"Kiểm tra kết nối, kiểm tra giấy và mực, restart máy in, cài lại driver nếu cần.",3,"The answer suggests creating a ticket or contacting IT Helpdesk, which is partially supported by the retrieved chunks. However, it does not directly address the specific question about not receiving emails from outside, which is mentioned in the chunks.",1,The answer does not address the query about troubleshooting a printer issue.,0,Retrieved: 0/1 expected sources. Missing: ['printer-troubleshoot.md'],1,Model answer does not address any of the key points related to troubleshooting the printer issue.,variant_hybrid_rerank

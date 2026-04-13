@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+chromadb
+langchain
+langchain-openai
+langchain-community
+langchain-experimental
+langchain-chroma
+pydantic
+python-dotenv
+rank-bm25
+sentence-transformers
+PyPDF2
+python-docx
+langgraph
+firebase-admin

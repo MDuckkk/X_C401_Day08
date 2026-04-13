@@ -1,5 +1,5 @@
 # Scorecard: baseline_dense
-Generated: 2026-04-13 15:39
+Generated: 2026-04-13 17:24
 
 ## Summary
 
@@ -8,7 +8,7 @@ Generated: 2026-04-13 15:39
 | Faithfulness | 4.60/5 |
 | Relevance | 4.30/5 |
 | Context Recall | 5.00/5 |
-| Completeness | 3.10/5 |
+| Completeness | 3.20/5 |
 
 ## Per-Question Results
 
@@ -16,11 +16,11 @@ Generated: 2026-04-13 15:39
 |----|----------|----------|----------|--------|----------|-------|
 | q01 | SLA | 5 | 5 | 5 | 3 | The answer accurately reflects the SLA for ticket  |
 | q02 | Refund | 5 | 5 | 5 | 5 | The answer accurately reflects the information pro |
-| q03 | Access Control | 5 | 5 | 5 | 2 | The answer accurately reflects the requirement tha |
+| q03 | Access Control | 5 | 5 | 5 | 3 | The answer accurately reflects the requirement for |
 | q04 | Refund | 5 | 5 | 5 | 4 | The answer accurately reflects the information pro |
 | q05 | IT Helpdesk | 5 | 5 | 5 | 4 | The answer accurately reflects the information pro |
 | q06 | SLA | 5 | 5 | 5 | 5 | The answer accurately reflects the escalation proc |
 | q07 | Access Control | 5 | 5 | 5 | 2 | The answer accurately references the document's pr |
 | q08 | HR Policy | 5 | 5 | 5 | 3 | The answer accurately reflects the information pro |
 | q09 | Insufficient Context | 1 | 1 | None | 1 | The answer 'Tôi không biết' does not provide any r |
-| q10 | Refund | 5 | 2 | 5 | 2 | The answer accurately reflects that there is no in |
+| q10 | Refund | 5 | 2 | 5 | 2 | The answer accurately reflects the lack of informa |

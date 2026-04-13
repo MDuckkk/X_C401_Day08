@@ -23,13 +23,22 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 from rag_answer import rag_answer, call_llm
+import os
 
 # =============================================================================
 # CẤU HÌNH
 # =============================================================================
 
 TEST_QUESTIONS_PATH = Path(__file__).parent / "data" / "test_questions.json"
+GRADING_QUESTIONS_PATH = Path(__file__).parent / "data" / "grading_questions.json"
 RESULTS_DIR = Path(__file__).parent / "results"
+
+# Điểm từng câu grading (theo SCORING.md)
+GRADING_POINTS = {
+    "gq01": 10, "gq02": 10, "gq03": 10, "gq04": 8,  "gq05": 10,
+    "gq06": 12, "gq07": 10, "gq08": 10, "gq09": 8,  "gq10": 10,
+}
+GRADING_TOTAL_RAW = 98  # Tổng điểm raw tối đa
 
 # Cấu hình baseline (Sprint 2)
 BASELINE_CONFIG = {
@@ -52,7 +61,7 @@ VARIANT_CONFIG = {
 
 
 # =============================================================================
-# SCORING FUNCTIONS
+# SCORING retrieval_mode 
 # 4 metrics từ slide: Faithfulness, Answer Relevance, Context Recall, Completeness
 # =============================================================================
 
@@ -476,6 +485,134 @@ Generated: {timestamp}
 
 
 # =============================================================================
+# GRADING LOG GENERATOR
+# =============================================================================
+
+def generate_grading_log(
+    config: Dict[str, Any],
+    output_filename: str = "grading_run.json"
+) -> None:
+    """
+    Tạo file JSON grading log từ grading_questions.json để nộp bài đúng chuẩn SCORING.md
+    """
+    log = []
+    log_dir = Path(__file__).parent / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        with open(GRADING_QUESTIONS_PATH, "r", encoding="utf-8") as f:
+            grading_questions = json.load(f)
+    except FileNotFoundError:
+        print(f"❌ Không tìm thấy {GRADING_QUESTIONS_PATH}. File này được public lúc 17:00!")
+        return
+
+    print(f"\n{'='*70}")
+    print(f"Tạo Grading Log với config: {config['label']}")
+    print(f"Số câu grading: {len(grading_questions)}")
+    print(f"{'='*70}")
+
+    best_mode = config.get("retrieval_mode", "dense")
+    use_rerank = config.get("use_rerank", False)
+
+    for i, q in enumerate(grading_questions):
+        print(f"[{i+1}/{len(grading_questions)}] {q['id']}: {q['question'][:60]}...")
+        try:
+            result = rag_answer(
+                query=q["question"],
+                retrieval_mode=best_mode,
+                use_rerank=use_rerank,
+                verbose=False
+            )
+            log.append({
+                "id": q["id"],
+                "question": q["question"],
+                "answer": result["answer"],
+                "sources": result["sources"],
+                "chunks_retrieved": len(result["chunks_used"]),
+                "retrieval_mode": result.get("config", {}).get("retrieval_mode", best_mode),
+                "timestamp": datetime.now().isoformat()
+            })
+        except Exception as e:
+            print(f"  Lỗi câu {q['id']}: {e}")
+            log.append({
+                "id": q["id"],
+                "question": q["question"],
+                "answer": f"PIPELINE_ERROR: {str(e)}",
+                "sources": [],
+                "chunks_retrieved": 0,
+                "retrieval_mode": best_mode,
+                "timestamp": datetime.now().isoformat()
+            })
+
+    output_path = log_dir / output_filename
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
+    print(f"\n✅ Đã lưu Grading Log tại: {output_path}")
+
+
+def print_scoring_estimate(results: List[Dict], label: str = "") -> None:
+    """
+    Ước tính điểm theo rubric SCORING.md dựa trên 4 metrics.
+    Quy tắc: Full (avg >= 4) = 100%, Partial (avg >= 2.5) = 50%, Zero = 0%
+    Áp dụng cho scorecard chạy trên test_questions (không phải grading chính thức).
+    """
+    print(f"\n{'='*70}")
+    print(f"Ước tính điểm SCORING.md — {label}")
+    print(f"(Dựa trên test_questions, không phải grading chính thức)")
+    print('='*70)
+
+    metrics = ["faithfulness", "relevance", "context_recall", "completeness"]
+    total_raw_estimate = 0.0
+    penalty = 0.0
+
+    print(f"\n{'ID':<6} {'F':>4} {'R':>4} {'Rc':>4} {'C':>4} {'Avg':>6} {'Mức':>10}")
+    print("-" * 45)
+
+    for r in results:
+        scores = [r[m] for m in metrics if r.get(m) is not None]
+        avg = sum(scores) / len(scores) if scores else 0
+
+        if avg >= 4.0:
+            level = "Full"
+        elif avg >= 2.5:
+            level = "Partial"
+        else:
+            level = "Zero"
+
+        print(f"{r['id']:<6} "
+              f"{str(r.get('faithfulness','?')):>4} "
+              f"{str(r.get('relevance','?')):>4} "
+              f"{str(r.get('context_recall','?')):>4} "
+              f"{str(r.get('completeness','?')):>4} "
+              f"{avg:>6.2f} {level:>10}")
+
+        # Faithfulness thấp (< 2) → có thể hallucinate → penalty
+        faith_score = r.get("faithfulness", 3)
+        if faith_score is not None and faith_score < 2:
+            penalty += 0.5  # Ước tính -50% điểm câu đó
+            print(f"       ⚠️  Faithfulness thấp — nguy cơ hallucination penalty!")
+
+    # Tính tổng ước tính (dùng số câu test thay cho grading)
+    n = len(results)
+    avg_per_q = GRADING_TOTAL_RAW / 10  # Trung bình điểm mỗi câu grading
+    for r in results:
+        scores = [r[m] for m in metrics if r.get(m) is not None]
+        avg = sum(scores) / len(scores) if scores else 0
+        if avg >= 4.0:
+            total_raw_estimate += avg_per_q
+        elif avg >= 2.5:
+            total_raw_estimate += avg_per_q * 0.5
+
+    total_raw_estimate -= penalty * avg_per_q
+    scoring_30 = max(0, (total_raw_estimate / GRADING_TOTAL_RAW) * 30)
+
+    print(f"\n{'─'*45}")
+    print(f"Ước tính raw score : {total_raw_estimate:.1f} / {GRADING_TOTAL_RAW}")
+    print(f"Ước tính điểm nhóm (Grading Questions 30đ): {scoring_30:.1f} / 30")
+    print(f"⚠️  Đây chỉ là ước tính từ test_questions — điểm thực tế từ grading_questions.json")
+
+
+# =============================================================================
 # MAIN — Chạy evaluation
 # =============================================================================
 
@@ -484,52 +621,52 @@ if __name__ == "__main__":
     print("Sprint 4: Evaluation & Scorecard")
     print("=" * 60)
 
-    # Kiểm tra test questions
+    # --- Load test_questions (dùng cho scorecard) ---
     print(f"\nLoading test questions từ: {TEST_QUESTIONS_PATH}")
     try:
         with open(TEST_QUESTIONS_PATH, "r", encoding="utf-8") as f:
             test_questions = json.load(f)
         print(f"Tìm thấy {len(test_questions)} câu hỏi")
-
-        # In preview
         for q in test_questions[:3]:
             print(f"  [{q['id']}] {q['question']} ({q['category']})")
         print("  ...")
-
     except FileNotFoundError:
         print("Không tìm thấy file test_questions.json!")
         test_questions = []
 
-    # --- Chạy Baseline ---
-    print("\n--- Chạy Baseline ---")
-    print("Lưu ý: Cần hoàn thành Sprint 2 trước khi chạy scorecard!")
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # --- Chạy Baseline Scorecard (dùng test_questions) ---
+    print("\n--- Chạy Baseline Scorecard (test_questions) ---")
     try:
         baseline_results = run_scorecard(
             config=BASELINE_CONFIG,
             test_questions=test_questions,
             verbose=True,
         )
-
-        # Save scorecard
-        RESULTS_DIR.mkdir(parents=True, exist_ok=True)
         baseline_md = generate_scorecard_summary(baseline_results, "baseline_dense")
-        scorecard_path = RESULTS_DIR / "scorecard_baseline.md"
-        scorecard_path.write_text(baseline_md, encoding="utf-8")
-        print(f"\nScorecard lưu tại: {scorecard_path}")
-
+        (RESULTS_DIR / "scorecard_baseline.md").write_text(baseline_md, encoding="utf-8")
+        print(f"\nScorecard lưu tại: {RESULTS_DIR / 'scorecard_baseline.md'}")
+        print_scoring_estimate(baseline_results, label="Baseline")
     except NotImplementedError:
         print("Pipeline chưa implement. Hoàn thành Sprint 2 trước.")
         baseline_results = []
 
-    # --- Chạy Variant (sau khi Sprint 3 hoàn thành) ---
-    print("\n--- Chạy Variant ---")
-    variant_results = run_scorecard(
-        config=VARIANT_CONFIG,
-        test_questions=test_questions,
-        verbose=True,
-    )
-    variant_md = generate_scorecard_summary(variant_results, VARIANT_CONFIG["label"])
-    (RESULTS_DIR / "scorecard_variant.md").write_text(variant_md, encoding="utf-8")
+    # --- Chạy Variant Scorecard (dùng test_questions) ---
+    print("\n--- Chạy Variant Scorecard (test_questions) ---")
+    try:
+        variant_results = run_scorecard(
+            config=VARIANT_CONFIG,
+            test_questions=test_questions,
+            verbose=True,
+        )
+        variant_md = generate_scorecard_summary(variant_results, VARIANT_CONFIG["label"])
+        (RESULTS_DIR / "scorecard_variant.md").write_text(variant_md, encoding="utf-8")
+        print(f"\nScorecard lưu tại: {RESULTS_DIR / 'scorecard_variant.md'}")
+        print_scoring_estimate(variant_results, label="Variant")
+    except NotImplementedError:
+        print("Variant chưa implement. Hoàn thành Sprint 3 trước.")
+        variant_results = []
 
     # --- A/B Comparison ---
     if baseline_results and variant_results:
@@ -539,10 +676,15 @@ if __name__ == "__main__":
             output_csv="ab_comparison.csv"
         )
 
-    print("\n\nViệc cần làm Sprint 4:")
-    print("  1. Hoàn thành Sprint 2 + 3 trước")
-    print("  2. Chấm điểm thủ công hoặc implement LLM-as-Judge trong score_* functions")
-    print("  3. Chạy run_scorecard(BASELINE_CONFIG)")
-    print("  4. Chạy run_scorecard(VARIANT_CONFIG)")
-    print("  5. Gọi compare_ab() để thấy delta")
-    print("  6. Cập nhật docs/tuning-log.md với kết quả và nhận xét")
+    # --- Grading Log (dùng grading_questions.json — public lúc 17:00) ---
+    print("\n--- Ghi Grading Log (grading_questions.json) ---")
+    # Dùng config tốt nhất của nhóm (thường là VARIANT_CONFIG)
+    generate_grading_log(
+        config=VARIANT_CONFIG,
+        output_filename="grading_run.json"
+    )
+
+    print("\n\nChecklist Sprint 4:")
+    print("  ✓ scorecard_baseline.md và scorecard_variant.md → từ test_questions.json")
+    print("  ✓ logs/grading_run.json → từ grading_questions.json (public lúc 17:00)")
+    print("  → Nếu grading_questions.json chưa có, chạy lại sau 17:00 để tạo grading log")

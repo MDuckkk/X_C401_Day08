@@ -30,7 +30,8 @@ from rag_answer import rag_answer, call_llm # --- THÊM CODE MỚI ---
 # =============================================================================
 
 TEST_QUESTIONS_PATH = Path(__file__).parent / "data" / "test_questions.json"
-RESULTS_DIR = Path(__file__).parent / "results"
+TEST_QUESTIONS_PATH_2 = Path(__file__).parent / "data" / "grading_questions.json"
+RESULTS_DIR = Path(__file__).parent / "results_2"
 
 # Cấu hình baseline (Sprint 2)
 BASELINE_CONFIG = {
@@ -365,7 +366,7 @@ def run_scorecard(
     4. In bảng kết quả
     """
     if test_questions is None:
-        with open(TEST_QUESTIONS_PATH, "r", encoding="utf-8") as f:
+        with open(TEST_QUESTIONS_PATH_2, "r", encoding="utf-8") as f:
             test_questions = json.load(f)
 
     results = []
@@ -584,9 +585,9 @@ if __name__ == "__main__":
     print("=" * 60)
 
     # Kiểm tra test questions
-    print(f"\nLoading test questions từ: {TEST_QUESTIONS_PATH}")
+    print(f"\nLoading test questions từ: {TEST_QUESTIONS_PATH_2}")
     try:
-        with open(TEST_QUESTIONS_PATH, "r", encoding="utf-8") as f:
+        with open(TEST_QUESTIONS_PATH_2, "r", encoding="utf-8") as f:
             test_questions = json.load(f)
         print(f"Tìm thấy {len(test_questions)} câu hỏi")
 

@@ -101,9 +101,17 @@ def score_faithfulness(
     context = "\n".join([c.get("text", "") for c in chunks_used])
     prompt = f"""Given these retrieved chunks: {context}
 And this answer: {answer}
+
 Rate the faithfulness on a scale of 1-5.
-5 = completely grounded in the provided context.
-1 = answer contains information not in the context.
+
+IMPORTANT RULES:
+- If the answer says "I don't know" / "Tôi không biết" / "Không đủ dữ liệu" / "Không có thông tin", this is PERFECTLY FAITHFUL (score = 5) because it does NOT hallucinate.
+- 5 = completely grounded in the provided context OR explicitly states lack of information
+- 4 = mostly grounded, one minor uncertain detail
+- 3 = partially grounded, some information may be from model knowledge
+- 2 = many details not in the context
+- 1 = answer fabricates information not in the context (hallucination)
+
 Output JSON format only: {{"score": <int>, "notes": "<string reason>"}}"""
 
     try:
@@ -135,9 +143,17 @@ def score_answer_relevance(
     """
     prompt = f"""Given the user question: "{query}"
 And this answer: "{answer}"
+
 Rate the answer relevance on a scale of 1-5.
-5 = Answer explicitly answers the question directly.
-1 = Answer is completely irrelevant to the question.
+
+IMPORTANT RULES:
+- If the answer says "I don't know" / "Tôi không biết" / "Không đủ dữ liệu" when the question cannot be answered from available data, this is RELEVANT (score = 5) because it directly addresses the question by stating the limitation.
+- 5 = Answer explicitly answers the question directly (including stating "I don't know" when appropriate)
+- 4 = Answers correctly but missing minor details
+- 3 = Related but not focused on the core issue
+- 2 = Partially off-topic
+- 1 = Completely irrelevant to the question
+
 Output JSON format only: {{"score": <int>, "notes": "<string reason>"}}"""
 
     try:
@@ -235,7 +251,16 @@ Model Answer: {answer}
 Expected Answer: {expected_answer}
 
 Rate completeness 1-5. Are all key points from Expected Answer covered in Model Answer?
-5 = Fully covered, 1 = Completely missed.
+
+IMPORTANT RULES:
+- If Expected Answer says "Không tìm thấy thông tin" / "không đề cập" and Model Answer says "Tôi không biết" / "Không đủ dữ liệu", they MATCH (score = 5).
+- If both answers indicate lack of information, this is COMPLETE (score = 5).
+- 5 = Fully covered (including both stating lack of information)
+- 4 = Missing one minor detail
+- 3 = Missing some important information
+- 2 = Missing many important points
+- 1 = Completely missed core content
+
 Output JSON format only: {{"score": <int>, "notes": "<string reason>"}}"""
 
     try:

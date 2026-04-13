@@ -2,14 +2,14 @@
   {
     "id": "gq01",
     "question": "SLA xử lý ticket P1 đã thay đổi như thế nào so với phiên bản trước?",
-    "answer": "SLA xử lý ticket P1 đã thay đổi từ 6 giờ xuống 4 giờ cho thời gian resolution [3].",
+    "answer": "SLA xử lý ticket P1 đã thay đổi từ 6 giờ xuống 4 giờ cho thời gian resolution trong phiên bản mới [3].",
     "sources": [
       "it/access-control-sop.md",
       "support/sla-p1-2026.pdf"
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:10.322067"
+    "timestamp": "2026-04-13T17:51:25.597281"
   },
   {
     "id": "gq02",
@@ -21,18 +21,18 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:12.112959"
+    "timestamp": "2026-04-13T17:51:26.971876"
   },
   {
     "id": "gq03",
     "question": "Đơn hàng mua trong chương trình Flash Sale và đã kích hoạt sản phẩm có được hoàn tiền không?",
-    "answer": "Đơn hàng đã áp dụng mã giảm giá đặc biệt theo chương trình khuyến mãi Flash Sale và sản phẩm đã được kích hoạt sẽ không được hoàn tiền [1].",
+    "answer": "Đơn hàng đã áp dụng mã giảm giá đặc biệt theo chương trình khuyến mãi Flash Sale sẽ không được hoàn tiền [1].",
     "sources": [
       "policy/refund-v4.pdf"
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:14.132695"
+    "timestamp": "2026-04-13T17:51:28.709022"
   },
   {
     "id": "gq04",
@@ -43,19 +43,19 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:15.809785"
+    "timestamp": "2026-04-13T17:51:30.360117"
   },
   {
     "id": "gq05",
     "question": "Contractor từ bên ngoài công ty có thể được cấp quyền Admin Access không? Nếu có, cần bao nhiêu ngày và có yêu cầu đặc biệt gì?",
-    "answer": "Có, contractor từ bên ngoài công ty có thể được cấp quyền Admin Access. Quy trình yêu cầu bao gồm việc tạo Access Request ticket trên Jira, phê duyệt của Line Manager trong 1 ngày làm việc, và kiểm tra compliance bởi IT Admin. Thời gian cấp quyền không được nêu rõ trong tài liệu, nhưng có thể mất ít nhất 1 ngày làm việc để hoàn tất quy trình này [1].",
+    "answer": "Có, contractor từ bên ngoài công ty có thể được cấp quyền Admin Access. Quy trình yêu cầu mất khoảng 1 ngày làm việc để được phê duyệt bởi Line Manager, sau đó IT Admin sẽ kiểm tra compliance và cấp quyền [1].",
     "sources": [
       "it/access-control-sop.md",
       "support/helpdesk-faq.md"
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:18.397478"
+    "timestamp": "2026-04-13T17:51:33.246745"
   },
   {
     "id": "gq06",
@@ -67,7 +67,7 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:21.453096"
+    "timestamp": "2026-04-13T17:51:35.601296"
   },
   {
     "id": "gq07",
@@ -80,7 +80,7 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:22.879198"
+    "timestamp": "2026-04-13T17:51:37.056803"
   },
   {
     "id": "gq08",
@@ -92,7 +92,7 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:25.465309"
+    "timestamp": "2026-04-13T17:51:39.634683"
   },
   {
     "id": "gq09",
@@ -103,7 +103,7 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:27.352684"
+    "timestamp": "2026-04-13T17:51:41.209942"
   },
   {
     "id": "gq10",
@@ -115,6 +115,6 @@
     ],
     "chunks_retrieved": 3,
     "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:26:29.459567"
+    "timestamp": "2026-04-13T17:51:42.879525"
   }
 ]

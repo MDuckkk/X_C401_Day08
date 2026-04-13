@@ -1,0 +1,749 @@
+[
+  {
+    "id": "q01",
+    "question": "SLA xử lý ticket P1 là bao lâu?",
+    "answer": "SLA xử lý ticket P1 là 4 giờ cho việc khắc phục (resolution) và phản hồi ban đầu trong 15 phút kể từ khi ticket được tạo [1].",
+    "sources": [
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:12:44.191245"
+  },
+  {
+    "id": "q02",
+    "question": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "answer": "Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:12:47.044843"
+  },
+  {
+    "id": "q03",
+    "question": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "answer": "Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:12:50.411003"
+  },
+  {
+    "id": "q04",
+    "question": "Sản phẩm kỹ thuật số có được hoàn tiền không?",
+    "answer": "Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:12:52.787947"
+  },
+  {
+    "id": "q05",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "answer": "Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp [2].",
+    "sources": [
+      "it/access-control-sop.md",
+      "support/helpdesk-faq.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:12:55.173095"
+  },
+  {
+    "id": "q06",
+    "question": "Escalation trong sự cố P1 diễn ra như thế nào?",
+    "answer": "Escalation trong sự cố P1 diễn ra theo quy trình sau:\n\n1. On-call IT Admin có thể cấp quyền tạm thời (tối đa 24 giờ) sau khi được Tech Lead phê duyệt bằng lời.\n2. Sau 24 giờ, phải có ticket chính thức hoặc quyền sẽ bị thu hồi tự động.\n3. Mọi quyền tạm thời phải được ghi log vào hệ thống Security Audit [1].",
+    "sources": [
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:12:58.943845"
+  },
+  {
+    "id": "q07",
+    "question": "Approval Matrix để cấp quyền hệ thống là tài liệu nào?",
+    "answer": "Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty [2].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:13:01.589172"
+  },
+  {
+    "id": "q08",
+    "question": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "answer": "Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành probation period, và lịch remote phải được Team Lead phê duyệt qua HR Portal [1].",
+    "sources": [
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:13:04.179311"
+  },
+  {
+    "id": "q09",
+    "question": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "answer": "ERR-403-AUTH là lỗi liên quan đến việc xác thực, thường xảy ra khi người dùng không có quyền truy cập vào tài nguyên yêu cầu. Cách xử lý cụ thể không được đề cập trong bối cảnh này, vì vậy tôi không biết.",
+    "sources": [
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:13:07.110312"
+  },
+  {
+    "id": "q10",
+    "question": "Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",
+    "answer": "Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Tôi không biết.",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:13:11.096598"
+  },
+  {
+    "id": "q01",
+    "question": "SLA xử lý ticket P1 là bao lâu?",
+    "answer": "SLA xử lý ticket P1 là 4 giờ để khắc phục và 15 phút để phản hồi ban đầu kể từ khi ticket được tạo [1].",
+    "sources": [
+      "policy/refund-v4.pdf",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:20:44.700220"
+  },
+  {
+    "id": "q02",
+    "question": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "answer": "Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:20:51.621728"
+  },
+  {
+    "id": "q03",
+    "question": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "answer": "Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [2].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:20:57.555228"
+  },
+  {
+    "id": "q04",
+    "question": "Sản phẩm kỹ thuật số có được hoàn tiền không?",
+    "answer": "Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:20:59.154964"
+  },
+  {
+    "id": "q05",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "answer": "Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp. Để mở khóa, liên hệ IT Helpdesk hoặc tự reset qua portal SSO [1].",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:01.478654"
+  },
+  {
+    "id": "q06",
+    "question": "Escalation trong sự cố P1 diễn ra như thế nào?",
+    "answer": "Escalation trong sự cố P1 diễn ra như sau: On-call IT Admin có thể cấp quyền tạm thời (tối đa 24 giờ) sau khi được Tech Lead phê duyệt bằng lời. Sau 24 giờ, phải có ticket chính thức hoặc quyền sẽ bị thu hồi tự động. Tất cả quyền tạm thời phải được ghi log vào hệ thống Security Audit [1].",
+    "sources": [
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:04.931503"
+  },
+  {
+    "id": "q07",
+    "question": "Approval Matrix để cấp quyền hệ thống là tài liệu nào?",
+    "answer": "Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty [1].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:08.118001"
+  },
+  {
+    "id": "q08",
+    "question": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "answer": "Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc, và lịch remote phải được phê duyệt bởi Team Lead qua HR Portal [1].",
+    "sources": [
+      "it/access-control-sop.md",
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:11.125667"
+  },
+  {
+    "id": "q09",
+    "question": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "answer": "Tôi không biết.",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:12.786743"
+  },
+  {
+    "id": "q10",
+    "question": "Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",
+    "answer": "Không có thông tin cụ thể nào trong bối cảnh về việc quy trình hoàn tiền cho khách hàng VIP có khác biệt hay không. Tôi không biết.",
+    "sources": [
+      "it/access-control-sop.md",
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "hybrid",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:15.390976"
+  },
+  {
+    "id": "q01",
+    "question": "SLA xử lý ticket P1 là bao lâu?",
+    "answer": "SLA xử lý ticket P1 là 4 giờ để khắc phục và xử lý sau phản hồi ban đầu trong 15 phút kể từ khi ticket được tạo [1].",
+    "sources": [
+      "policy/refund-v4.pdf",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:17.963619"
+  },
+  {
+    "id": "q02",
+    "question": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "answer": "Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:19.993121"
+  },
+  {
+    "id": "q03",
+    "question": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "answer": "Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].",
+    "sources": [
+      "it/access-control-sop.md",
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:22.443629"
+  },
+  {
+    "id": "q04",
+    "question": "Sản phẩm kỹ thuật số có được hoàn tiền không?",
+    "answer": "Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:24.467775"
+  },
+  {
+    "id": "q05",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "answer": "Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp. Để mở khóa, liên hệ IT Helpdesk hoặc tự reset qua portal SSO [1].",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:26.755155"
+  },
+  {
+    "id": "q06",
+    "question": "Escalation trong sự cố P1 diễn ra như thế nào?",
+    "answer": "Escalation trong sự cố P1 diễn ra như sau:\n\n1. On-call engineer nhận alert hoặc ticket và xác nhận severity trong 5 phút.\n2. Nếu không có phản hồi trong 10 phút, ticket sẽ tự động escalate lên Senior Engineer.\n3. Lead Engineer phân công engineer xử lý trong 10 phút.\n4. Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm, sẽ escalate ngay.\n\nQuy trình này đảm bảo rằng sự cố P1 được xử lý kịp thời và hiệu quả [2][3].",
+    "sources": [
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:30.327868"
+  },
+  {
+    "id": "q07",
+    "question": "Approval Matrix để cấp quyền hệ thống là tài liệu nào?",
+    "answer": "Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty, áp dụng cho tất cả nhân viên, contractor, và third-party vendor [1].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:33.353126"
+  },
+  {
+    "id": "q08",
+    "question": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "answer": "Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc [1].",
+    "sources": [
+      "it/access-control-sop.md",
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:35.153535"
+  },
+  {
+    "id": "q09",
+    "question": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "answer": "ERR-403-AUTH là lỗi liên quan đến quyền truy cập. Tuy nhiên, thông tin cụ thể về cách xử lý lỗi này không có trong ngữ cảnh đã cung cấp. Do đó, tôi không biết cách xử lý lỗi ERR-403-AUTH.",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:38.975789"
+  },
+  {
+    "id": "q10",
+    "question": "Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",
+    "answer": "Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Tôi không biết.",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:21:41.476613"
+  },
+  {
+    "id": "q01",
+    "question": "SLA xử lý ticket P1 là bao lâu?",
+    "answer": "SLA xử lý ticket P1 là 4 giờ cho việc khắc phục (resolution) và phản hồi ban đầu trong 15 phút kể từ khi ticket được tạo [1].",
+    "sources": [
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:21:45.057399"
+  },
+  {
+    "id": "q02",
+    "question": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "answer": "Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:21:49.403495"
+  },
+  {
+    "id": "q03",
+    "question": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "answer": "Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:21:52.107783"
+  },
+  {
+    "id": "q04",
+    "question": "Sản phẩm kỹ thuật số có được hoàn tiền không?",
+    "answer": "Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:21:55.753997"
+  },
+  {
+    "id": "q05",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "answer": "Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp [2].",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:21:58.239478"
+  },
+  {
+    "id": "q06",
+    "question": "Escalation trong sự cố P1 diễn ra như thế nào?",
+    "answer": "Escalation trong sự cố P1 diễn ra như sau:\n\n1. On-call engineer nhận alert hoặc ticket và xác nhận severity trong 5 phút.\n2. Nếu không có phản hồi trong 10 phút, ticket sẽ tự động escalate lên Senior Engineer.\n3. Lead Engineer phân công engineer xử lý trong 10 phút.\n4. Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm, sẽ escalate ngay.\n\nQuy trình này đảm bảo rằng sự cố P1 được xử lý kịp thời và hiệu quả [2][3].",
+    "sources": [
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:02.566292"
+  },
+  {
+    "id": "q07",
+    "question": "Approval Matrix để cấp quyền hệ thống là tài liệu nào?",
+    "answer": "Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty, áp dụng cho tất cả nhân viên, contractor, và third-party vendor [1].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:05.462301"
+  },
+  {
+    "id": "q08",
+    "question": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "answer": "Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc [1].",
+    "sources": [
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:08.925109"
+  },
+  {
+    "id": "q09",
+    "question": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "answer": "ERR-403-AUTH là lỗi liên quan đến việc không có quyền truy cập. Cách xử lý có thể bao gồm việc tạo yêu cầu cấp quyền thông qua quy trình đã được mô tả, bao gồm việc phê duyệt từ Line Manager và kiểm tra compliance bởi IT Admin [2].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:13.534473"
+  },
+  {
+    "id": "q10",
+    "question": "Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",
+    "answer": "Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Do đó, tôi không biết.",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "dense",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:17.915148"
+  },
+  {
+    "id": "q01",
+    "question": "SLA xử lý ticket P1 là bao lâu?",
+    "answer": "SLA xử lý ticket P1 là 4 giờ [2].",
+    "sources": [
+      "policy/refund-v4.pdf",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:18.874526"
+  },
+  {
+    "id": "q02",
+    "question": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "answer": "Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [2].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:20.000034"
+  },
+  {
+    "id": "q03",
+    "question": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "answer": "Tech Lead phải phê duyệt để cấp quyền Level 3 [1].",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:21.256310"
+  },
+  {
+    "id": "q04",
+    "question": "Sản phẩm kỹ thuật số có được hoàn tiền không?",
+    "answer": "Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:22.811150"
+  },
+  {
+    "id": "q05",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "answer": "Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp. Để mở khóa, liên hệ IT Helpdesk hoặc tự reset qua portal SSO [1].",
+    "sources": [
+      "support/helpdesk-faq.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:24.369679"
+  },
+  {
+    "id": "q06",
+    "question": "Escalation trong sự cố P1 diễn ra như thế nào?",
+    "answer": "Escalation trong sự cố P1 diễn ra như sau: On-call IT Admin có thể cấp quyền tạm thời (tối đa 24 giờ) sau khi được Tech Lead phê duyệt bằng lời. Sau 24 giờ, phải có ticket chính thức hoặc quyền sẽ bị thu hồi tự động. Tất cả quyền tạm thời phải được ghi log vào hệ thống Security Audit [2].",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:26.536839"
+  },
+  {
+    "id": "q07",
+    "question": "Approval Matrix để cấp quyền hệ thống là tài liệu nào?",
+    "answer": "Approval Matrix để cấp quyền hệ thống không được đề cập trong các tài liệu đã cung cấp. Tôi không biết.",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:27.809690"
+  },
+  {
+    "id": "q08",
+    "question": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "answer": "Nhân viên được làm remote tối đa 2 ngày mỗi tuần [1].",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:28.836089"
+  },
+  {
+    "id": "q09",
+    "question": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "answer": "Tôi không biết.",
+    "sources": [
+      "support/helpdesk-faq.md",
+      "policy/refund-v4.pdf",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:29.817374"
+  },
+  {
+    "id": "q10",
+    "question": "Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",
+    "answer": "Tôi không biết.",
+    "sources": [
+      "it/access-control-sop.md",
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": false,
+    "timestamp": "2026-04-13T08:22:30.708611"
+  },
+  {
+    "id": "q01",
+    "question": "SLA xử lý ticket P1 là bao lâu?",
+    "answer": "SLA xử lý ticket P1 là 4 giờ cho việc khắc phục (resolution) và phản hồi ban đầu trong 15 phút kể từ khi ticket được tạo [1].",
+    "sources": [
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:33.880603"
+  },
+  {
+    "id": "q02",
+    "question": "Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?",
+    "answer": "Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:36.839745"
+  },
+  {
+    "id": "q03",
+    "question": "Ai phải phê duyệt để cấp quyền Level 3?",
+    "answer": "Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:40.121171"
+  },
+  {
+    "id": "q04",
+    "question": "Sản phẩm kỹ thuật số có được hoàn tiền không?",
+    "answer": "Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:44.306866"
+  },
+  {
+    "id": "q05",
+    "question": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "answer": "Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp [2].",
+    "sources": [
+      "support/helpdesk-faq.md"
+    ],
+    "chunks_retrieved": 2,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:46.808287"
+  },
+  {
+    "id": "q06",
+    "question": "Escalation trong sự cố P1 diễn ra như thế nào?",
+    "answer": "Escalation trong sự cố P1 diễn ra như sau:\n\n1. On-call IT Admin có thể cấp quyền tạm thời (tối đa 24 giờ) sau khi được Tech Lead phê duyệt bằng lời.\n2. Sau 24 giờ, phải có ticket chính thức hoặc quyền sẽ bị thu hồi tự động.\n3. Tất cả quyền tạm thời phải được ghi log vào hệ thống Security Audit [1].",
+    "sources": [
+      "it/access-control-sop.md",
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:53.617141"
+  },
+  {
+    "id": "q07",
+    "question": "Approval Matrix để cấp quyền hệ thống là tài liệu nào?",
+    "answer": "Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty [2].",
+    "sources": [
+      "it/access-control-sop.md"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:22:56.672894"
+  },
+  {
+    "id": "q08",
+    "question": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "answer": "Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc, và lịch remote phải được Team Lead phê duyệt qua HR Portal [1].",
+    "sources": [
+      "hr/leave-policy-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:23:00.824889"
+  },
+  {
+    "id": "q09",
+    "question": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "answer": "Tôi không biết.",
+    "sources": [
+      "support/sla-p1-2026.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:23:02.603645"
+  },
+  {
+    "id": "q10",
+    "question": "Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",
+    "answer": "Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Tôi không biết.",
+    "sources": [
+      "policy/refund-v4.pdf"
+    ],
+    "chunks_retrieved": 3,
+    "retrieval_mode": "sparse",
+    "use_rerank": true,
+    "timestamp": "2026-04-13T08:23:04.998451"
+  }
+]

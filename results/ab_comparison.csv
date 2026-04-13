@@ -1,0 +1,48 @@
+=== SUMMARY ===
+Metric,Baseline,Variant,Delta
+faithfulness,4.40,4.90,+0.50
+relevance,4.40,4.60,+0.20
+context_recall,5.00,5.00,+0.00
+completeness,3.90,3.90,+0.00
+
+=== PER-QUESTION ===
+id,query,baseline_answer,variant_answer,baseline_faithfulness,baseline_relevance,baseline_context_recall,baseline_completeness,variant_faithfulness,variant_relevance,variant_context_recall,variant_completeness,delta_faithfulness,delta_relevance,delta_context_recall,delta_completeness,better
+q01,SLA xử lý ticket P1 là bao lâu?,SLA xử lý ticket P1 là 4 giờ để khắc phục và 15 phút để phản hồi ban đầu kể từ khi ticket được tạo [1].,SLA xử lý ticket P1 là 4 giờ để khắc phục và 15 phút để phản hồi ban đầu kể từ khi ticket được tạo [1].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
+q02,Khách hàng có thể yêu cầu hoàn tiền trong bao nhiêu ngày?,Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].,Khách hàng có thể yêu cầu hoàn tiền trong vòng 7 ngày làm việc kể từ thời điểm xác nhận đơn hàng [1].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
+q03,Ai phải phê duyệt để cấp quyền Level 3?,"Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].","Để cấp quyền Level 3, cần phê duyệt của Line Manager, IT Admin và IT Security [1].",5,5,5,5,5,5,5,5,0,0,0,0,Tie
+q04,Sản phẩm kỹ thuật số có được hoàn tiền không?,"Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].","Sản phẩm kỹ thuật số không được hoàn tiền, trừ khi có lỗi do nhà sản xuất và đáp ứng các điều kiện khác [1].",3,5,5,3,4,5,5,3,1,0,0,0,Variant
+q05,Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?,"Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp. Để mở khóa, liên hệ IT Helpdesk hoặc tự reset qua portal SSO [1].",Tài khoản bị khóa sau 5 lần đăng nhập sai liên tiếp [2].,5,5,5,5,5,5,5,5,0,0,0,0,Tie
+q06,Escalation trong sự cố P1 diễn ra như thế nào?,"Escalation trong sự cố P1 diễn ra như sau:
+
+1. On-call engineer nhận alert hoặc ticket và xác nhận severity trong 5 phút.
+2. Nếu không có phản hồi trong 10 phút, ticket sẽ tự động escalate lên Senior Engineer.
+3. Lead Engineer phân công engineer xử lý trong 10 phút.
+4. Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm, sẽ escalate ngay.
+
+Quy trình này đảm bảo rằng sự cố P1 được xử lý kịp thời và hiệu quả [2][3].","Escalation trong sự cố P1 diễn ra như sau:
+
+1. On-call engineer nhận alert hoặc ticket và xác nhận severity trong 5 phút.
+2. Nếu không có phản hồi trong 10 phút, ticket sẽ tự động escalate lên Senior Engineer.
+3. Lead Engineer phân công engineer xử lý trong 10 phút.
+4. Engineer cập nhật tiến độ lên ticket mỗi 30 phút và nếu cần hỗ trợ thêm, sẽ escalate ngay.
+
+Quy trình này đảm bảo rằng sự cố P1 được xử lý kịp thời và hiệu quả [2][3].",5,5,5,4,5,5,5,4,0,0,0,0,Tie
+q07,Approval Matrix để cấp quyền hệ thống là tài liệu nào?,"Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty, áp dụng cho tất cả nhân viên, contractor, và third-party vendor [1].","Approval Matrix để cấp quyền hệ thống là tài liệu quy định quy trình cấp phép truy cập vào các hệ thống nội bộ của công ty, áp dụng cho tất cả nhân viên, contractor, và third-party vendor [2].",5,5,5,2,5,5,5,2,0,0,0,0,Tie
+q08,Nhân viên được làm remote tối đa mấy ngày mỗi tuần?,Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc [1].,Nhân viên được làm remote tối đa 2 ngày mỗi tuần sau khi hoàn thành thời gian thử việc [1].,5,5,5,4,5,5,5,4,0,0,0,0,Tie
+q09,ERR-403-AUTH là lỗi gì và cách xử lý?,"ERR-403-AUTH là lỗi liên quan đến quyền truy cập. Tuy nhiên, thông tin cụ thể về cách xử lý lỗi này không có trong ngữ cảnh đã cung cấp. Do đó, tôi không biết cách xử lý lỗi ERR-403-AUTH.","ERR-403-AUTH là lỗi liên quan đến việc xác thực quyền truy cập, thường xảy ra khi người dùng không có quyền truy cập vào tài nguyên yêu cầu. Để xử lý lỗi này, người dùng có thể kiểm tra lại thông tin đăng nhập, đảm bảo rằng họ có quyền truy cập cần thiết hoặc liên hệ với quản trị viên hệ thống để được hỗ trợ.",1,3,,3,5,5,,4,4,2,0,1,Variant
+q10,"Nếu cần hoàn tiền khẩn cấp cho khách hàng VIP, quy trình có khác không?",Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Tôi không biết.,"Không có thông tin nào trong bối cảnh đề cập đến quy trình hoàn tiền khẩn cấp cho khách hàng VIP. Do đó, tôi không biết.",5,1,5,3,5,1,5,2,0,0,0,-1,Baseline
+
+=== ANALYSIS ===
+explanation
+### Tóm tắt
+"Variant `variant_hybrid_rerank` tốt hơn baseline `baseline_dense` ở hai metric: faithfulness (+0.50) và relevance (+0.20). Tuy nhiên, cả hai cấu hình đều có điểm số giống nhau ở metric context_recall (5.00) và completeness (3.90)."
+""
+### Phân tích câu hỏi
+"- **Câu hỏi thắng**: Qq04 (variant: 4/5/5/3, baseline: 3/5/5/3) cho thấy variant cải thiện faithfulness. Qq09 (variant: 5/5/None/4, baseline: 1/3/None/3) cho thấy sự cải thiện rõ rệt ở tất cả các metric có thể đo lường."
+"- **Câu hỏi thua**: Qq10 (variant: 5/1/5/2, baseline: 5/1/5/3) cho thấy variant giảm completeness từ 3 xuống 2, mặc dù không ảnh hưởng đến các metric khác."
+""
+### Giải thích biến đã thay đổi
+Cấu hình `variant_hybrid_rerank` có thể đã cải thiện khả năng faithfulness và relevance nhờ vào việc kết hợp các phương pháp khác nhau (hybrid) và sắp xếp lại kết quả (rerank). Điều này giúp tăng cường độ chính xác và độ tin cậy của thông tin được cung cấp.
+""
+### Kết luận
+"Dựa trên kết quả A/B test, nên sử dụng cấu hình `variant_hybrid_rerank` cho production vì nó cho thấy sự cải thiện đáng kể về faithfulness và relevance, điều này có thể nâng cao trải nghiệm người dùng và độ tin cậy của hệ thống."

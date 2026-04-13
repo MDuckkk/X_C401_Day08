@@ -97,7 +97,7 @@ The backend will create and use these collections automatically:
 2. Install frontend dependencies.
 
 ```powershell
-cd c:/frontend
+cd c:/User/[username]/frontend
 npm install
 ```
 

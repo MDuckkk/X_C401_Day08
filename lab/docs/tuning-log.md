@@ -26,23 +26,23 @@ llm_model = gpt-4o-mini
 **Scorecard Baseline:**
 | Metric | Average Score |
 |--------|--------------|
-| Faithfulness | 4.60/5 |
-| Relevance | 4.30/5 |
+| Faithfulness | 4.90/5 |
+| Relevance | 5.00/5 |
 | Context Recall | 5.00/5 |
-| Completeness | 3.10/5 |
+| Completeness | 3.90/5 |
 
 **Câu hỏi yếu nhất (điểm thấp):**
-> q09 (Insufficient Context) - Faithfulness = 1/5, Relevance = 1/5, Completeness = 1/5, Recall = None; model trả lời "Tôi không biết", cho thấy không truy hồi được evidence phù hợp để trả lời.
-> q10 (Refund) - Relevance = 2/5, Completeness = 2/5 (dù Faithfulness = 5/5); câu trả lời đúng ý chính nhưng thiếu chiều sâu/chi tiết cần thiết.
-> q03 (Access Control) - Completeness = 2/5; thông tin đúng nhưng chưa đầy đủ các điều kiện/phạm vi trong policy.
+> q07 (Access Control) - Completeness = 2/5; câu trả lời xác định đúng tên tài liệu nhưng không liệt kê đủ các điều kiện/phạm vi trong policy.
+> q03 (Access Control) - Completeness = 3/5; thông tin đúng nhưng chưa đầy đủ các điều kiện cụ thể.
+> q08 (HR Policy) - Completeness = 3/5; câu trả lời phản ánh đúng thông tin nhưng thiếu chi tiết về các trường hợp ngoại lệ.
 
 
 **Giả thuyết nguyên nhân (Error Tree):**
-- [ ] Indexing: Chunking cắt giữa điều khoản
+- [x] Indexing: Chunking cắt giữa điều khoản → thiếu điều kiện/phạm vi đầy đủ (q03, q07)
 - [ ] Indexing: Metadata thiếu effective_date
-- [x] Retrieval: Dense bỏ lỡ exact keyword / alias
-- [x] Retrieval: Top-k quá ít → thiếu evidence
-- [x] Generation: Prompt không đủ grounding
+- [ ] Retrieval: Dense bỏ lỡ exact keyword / alias
+- [ ] Retrieval: Top-k quá ít → thiếu evidence
+- [x] Generation: Prompt không đủ grounding → model không liệt kê hết chi tiết (q07, q08)
 - [ ] Generation: Context quá dài → lost in the middle
 
 ---
@@ -52,32 +52,33 @@ llm_model = gpt-4o-mini
 **Ngày:** 13/4/2026
 **Biến thay đổi:** Retrieval mode (dense -> hybrid)  
 **Lý do chọn biến này:**
-> Baseline cho thấy lỗi retrieval là nút thắt chính (`Dense bỏ lỡ exact keyword / alias` và `Top-k quá ít -> thiếu evidence` trong Error Tree).
-> Điểm yếu tập trung ở q09 (Insufficient Context: Faithfulness/Relevance/Completeness đều 1) và q10 (Relevance 2, Completeness 2), nên ưu tiên thử hybrid để kết hợp semantic match + lexical match cho alias/keyword đặc thù.
-> Corpus có cả ngôn ngữ tự nhiên (policy/SLA) và nhiều term định danh (approval matrix, mã lỗi, nhãn SLA), phù hợp với chiến lược hybrid.
+> Baseline cho thấy Completeness là điểm yếu chính (3.90/5), tập trung ở các câu hỏi Access Control (q03, q07) và HR Policy (q08) — nơi câu trả lời đúng nhưng thiếu chi tiết điều kiện/phạm vi.
+> Giả thuyết: chunking recursive có thể cắt giữa điều khoản, khiến evidence bị phân mảnh; hybrid retrieval kỳ vọng lấy thêm chunk liên quan qua lexical match để bổ sung context còn thiếu.
+> Corpus có cả ngôn ngữ tự nhiên (policy/SLA) và nhiều term định danh (approval matrix, nhãn SLA), phù hợp với chiến lược hybrid.
 
 **Config thay đổi:**
 ```
-retrieval_mode = "hybrid"   # hoặc biến khác
+retrieval_mode = "hybrid"  
 # Các tham số còn lại giữ nguyên như baseline
 ```
 
 **Scorecard Variant 1:**
 | Metric | Baseline | Variant 1 | Delta |
 |--------|----------|-----------|-------|
-| Faithfulness | 4.60/5 | 3.80/5 | -0.80 |
-| Answer Relevance | 4.30/5 | 4.30/5 | +0.00 |
+| Faithfulness | 4.90/5 | 4.60/5 | -0.30 |
+| Answer Relevance | 5.00/5 | 4.90/5 | -0.10 |
 | Context Recall | 5.00/5 | 5.00/5 | +0.00 |
-| Completeness | 3.10/5 | 3.30/5 | +0.20 |
+| Completeness | 3.90/5 | 4.00/5 | +0.10 |
 
 **Nhận xét:**
-> Cải thiện rõ nhất ở q01 (Completeness: 3 -> 5), cho thấy hybrid giúp lấy thêm ngữ cảnh đầy đủ hơn ở câu hỏi SLA.
-> Một số câu không đổi (q02, q04, q05, q06, q07, q08, q09) nên tác động của hybrid không đồng đều.
-> Kém hơn ở q03 và q10 (Faithfulness: 5 -> 1), do câu trả lời thêm/diễn giải sai chi tiết dù recall vẫn cao; đây là dấu hiệu context retrieval đủ nhưng grounding/chọn evidence chưa ổn định.
+> Cải thiện nhẹ ở Completeness (3.90 -> 4.00), cụ thể q01 tăng từ 3 -> 5, cho thấy hybrid giúp lấy thêm ngữ cảnh đầy đủ hơn ở câu hỏi SLA.
+> Tuy nhiên Faithfulness giảm (4.90 -> 4.60) do q03 tụt mạnh (Faithfulness: 4 -> 1) — câu trả lời thêm thông tin không có trong context (hallucination), dù recall vẫn cao.
+> Relevance giảm nhẹ (5.00 -> 4.90) do q04 giảm từ 5 -> 4.
+> Các câu còn lại (q02, q05, q06, q08, q09, q10) không đổi hoặc cải thiện nhỏ.
 
 **Kết luận:**
 > Variant 1 **chưa tốt hơn baseline** nếu xét tổng thể.
-> Bằng chứng: Faithfulness giảm mạnh (4.60 -> 3.80), trong khi Relevance và Recall giữ nguyên, Completeness chỉ tăng nhẹ (3.10 -> 3.30). Dù có cải thiện cục bộ (q01), việc tụt Faithfulness ở q03 và q10 là rủi ro lớn hơn lợi ích thu được.
+> Bằng chứng: Faithfulness giảm (4.90 -> 4.60) và Relevance giảm nhẹ (5.00 -> 4.90), trong khi Completeness chỉ tăng +0.10. Dù có cải thiện cục bộ (q01), việc tụt Faithfulness mạnh ở q03 là rủi ro lớn hơn lợi ích thu được.
 
 ---
 
@@ -104,13 +105,13 @@ retrieval_mode = "hybrid"   # hoặc biến khác
 > TODO (Sprint 4): Điền sau khi hoàn thành evaluation.
 
 1. **Lỗi phổ biến nhất trong pipeline này là gì?**
-   > Lỗi phổ biến nhất là **retrieval/generation mismatch**: hệ thống có lấy được context (Recall cao) nhưng answer vẫn thiếu ý hoặc sai chi tiết khi grounding chưa ổn định (thể hiện ở Completeness thấp và tụt Faithfulness ở một số câu như q03, q10).
+   > Lỗi phổ biến nhất là **generation không liệt kê đủ chi tiết từ context**: hệ thống retrieve đúng (Recall 5.00/5) nhưng model không tổng hợp hết các điều kiện/phạm vi trong policy, dẫn đến Completeness thấp (q03, q07, q08).
 
 2. **Biến nào có tác động lớn nhất tới chất lượng?**
-   > **retrieval_mode (dense ↔ hybrid)** là biến có tác động lớn nhất trong vòng này: chỉ đổi 1 biến nhưng làm thay đổi rõ trade-off giữa Faithfulness và Completeness.
+   > **retrieval_mode (dense ↔ hybrid)** có tác động rõ nhất: cải thiện Completeness nhẹ (+0.10) nhưng gây tụt Faithfulness (-0.30) do hallucination ở q03. Trade-off này cho thấy bottleneck thực sự nằm ở generation/grounding hơn là retrieval.
 
 3. **Nếu có thêm 1 giờ, nhóm sẽ thử gì tiếp theo?**
-   > Bật **rerank** (giữ hybrid) và chạy lại A/B: ưu tiên tăng Faithfulness cho q03/q10 mà không làm giảm Completeness; nếu chưa đủ, thử tăng `top_k_search` lên 12-15 rồi giữ `top_k_select=3` để tránh nhiễu context.
+   > Bật **rerank** (giữ hybrid) và tăng độ chặt grounding trong prompt (ép model chỉ dùng evidence có trong context): ưu tiên khắc phục hallucination ở q03 và tăng Completeness cho q07/q08 mà không làm giảm Faithfulness.
 
 ================================================================
 

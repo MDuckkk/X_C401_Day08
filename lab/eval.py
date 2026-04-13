@@ -703,9 +703,8 @@ if __name__ == "__main__":
 
     # --- Grading Log (dùng grading_questions.json — public lúc 17:00) ---
     print("\n--- Ghi Grading Log (grading_questions.json) ---")
-    # Dùng config tốt nhất của nhóm (thường là VARIANT_CONFIG)
     generate_grading_log(
-        config=VARIANT_CONFIG,
+        config=BASELINE_CONFIG,
         output_filename="grading_run.json"
     )
 

@@ -52,16 +52,24 @@ Nhóm giữ nguyên nguyên tắc grounded answer:
 
 ## 3. So sánh kết quả Recursive vs Semantic (theo tuning-log)
 
-### 3.1. Recursive (tốt nhất hiện tại: Baseline dense)
-- Faithfulness: **4.60/5**
-- Relevance: **4.30/5**
-- Context Recall: **5.00/5**
-- Completeness: **3.10/5**
+### 3.1. Recursive
 
-Variant hybrid của Recursive có trade-off:
-- Faithfulness giảm còn 3.80
-- Completeness tăng lên 3.30
-- Kết luận nội bộ: hybrid chưa vượt baseline do tụt faithfulness.
+Baseline (dense):
+- Faithfulness: **4.90/5**
+- Relevance: **5.00/5**
+- Context Recall: **5.00/5**
+- Completeness: **4.00/5**
+
+Variant (hybrid):
+- Faithfulness: **4.60/5** (giảm -0.30)
+- Relevance: **5.00/5** 
+- Context Recall: **5.00/5**
+- Completeness: **4.10/5** (tăng +0.10)
+
+Phân tích chi tiết:
+- Hybrid cải thiện nhẹ Completeness (+0.10) nhưng đánh đổi Faithfulness (-0.30)
+- Nguyên nhân: Câu q03 bị hallucination nghiêm trọng (Faithfulness = 1) khi dùng hybrid
+- Kết luận: Baseline dense ổn định hơn, được chọn làm config chính thức cho grading
 
 ### 3.2. Semantic (baseline và variant hiện tại)
 - Faithfulness: **3.70/5**

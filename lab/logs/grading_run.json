@@ -2,14 +2,14 @@
   {
     "id": "gq01",
     "question": "SLA xử lý ticket P1 đã thay đổi như thế nào so với phiên bản trước?",
-    "answer": "SLA xử lý ticket P1 đã thay đổi từ 6 giờ xuống 4 giờ cho thời gian resolution trong phiên bản mới [3].",
+    "answer": "SLA xử lý ticket P1 đã thay đổi từ 6 giờ xuống 4 giờ trong phiên bản mới [2].",
     "sources": [
       "it/access-control-sop.md",
       "support/sla-p1-2026.pdf"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:25.597281"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:41.566532"
   },
   {
     "id": "gq02",
@@ -20,42 +20,43 @@
       "support/helpdesk-faq.md"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:26.971876"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:43.273645"
   },
   {
     "id": "gq03",
     "question": "Đơn hàng mua trong chương trình Flash Sale và đã kích hoạt sản phẩm có được hoàn tiền không?",
-    "answer": "Đơn hàng đã áp dụng mã giảm giá đặc biệt theo chương trình khuyến mãi Flash Sale sẽ không được hoàn tiền [1].",
+    "answer": "Đơn hàng đã áp dụng mã giảm giá đặc biệt theo chương trình khuyến mãi Flash Sale và sản phẩm đã được kích hoạt sẽ không được hoàn tiền [1].",
     "sources": [
       "policy/refund-v4.pdf"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:28.709022"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:44.893237"
   },
   {
     "id": "gq04",
     "question": "Nếu chọn nhận store credit thay vì hoàn tiền, tôi được bao nhiêu phần trăm so với số tiền gốc?",
-    "answer": "Nếu chọn nhận store credit thay vì hoàn tiền, bạn sẽ nhận được 110% so với số tiền gốc [1].",
+    "answer": "Nếu chọn nhận store credit, bạn sẽ nhận được 110% so với số tiền gốc [1].",
     "sources": [
-      "policy/refund-v4.pdf"
+      "policy/refund-v4.pdf",
+      "support/helpdesk-faq.md"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:30.360117"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:46.464094"
   },
   {
     "id": "gq05",
     "question": "Contractor từ bên ngoài công ty có thể được cấp quyền Admin Access không? Nếu có, cần bao nhiêu ngày và có yêu cầu đặc biệt gì?",
-    "answer": "Có, contractor từ bên ngoài công ty có thể được cấp quyền Admin Access. Quy trình yêu cầu mất khoảng 1 ngày làm việc để được phê duyệt bởi Line Manager, sau đó IT Admin sẽ kiểm tra compliance và cấp quyền [1].",
+    "answer": "Có, contractor từ bên ngoài công ty có thể được cấp quyền Admin Access. Quy trình yêu cầu bao gồm việc tạo Access Request ticket trên Jira, phê duyệt của Line Manager trong 1 ngày làm việc, và kiểm tra compliance bởi IT Admin. Thời gian cụ thể để cấp quyền không được nêu rõ trong tài liệu, nhưng có thể mất thêm thời gian cho các bước review sau đó [1].",
     "sources": [
       "it/access-control-sop.md",
       "support/helpdesk-faq.md"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:33.246745"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:48.919888"
   },
   {
     "id": "gq06",
@@ -66,33 +67,32 @@
       "support/sla-p1-2026.pdf"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:35.601296"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:51.567459"
   },
   {
     "id": "gq07",
     "question": "Công ty sẽ phạt bao nhiêu nếu team IT vi phạm cam kết SLA P1?",
     "answer": "Tôi không biết.",
     "sources": [
-      "it/access-control-sop.md",
       "support/helpdesk-faq.md",
       "support/sla-p1-2026.pdf"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:37.056803"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:54.477633"
   },
   {
     "id": "gq08",
     "question": "Nhân viên phải báo trước bao nhiêu ngày để xin nghỉ phép năm? Con số này có giống với số ngày cần giấy tờ khi nghỉ ốm không?",
-    "answer": "Nhân viên phải báo trước ít nhất 3 ngày làm việc để xin nghỉ phép năm [2]. Số ngày cần giấy tờ khi nghỉ ốm là nếu nghỉ trên 3 ngày liên tiếp [1], do đó không giống nhau.",
+    "answer": "Nhân viên phải báo trước ít nhất 3 ngày làm việc để xin nghỉ phép năm [2]. Số ngày cần giấy tờ khi nghỉ ốm là nếu nghỉ trên 3 ngày liên tiếp [1], do đó con số này không giống nhau.",
     "sources": [
       "hr/leave-policy-2026.pdf",
       "support/helpdesk-faq.md"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:39.634683"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:57.213751"
   },
   {
     "id": "gq09",
@@ -102,8 +102,8 @@
       "support/helpdesk-faq.md"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:41.209942"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:12:59.355911"
   },
   {
     "id": "gq10",
@@ -114,7 +114,7 @@
       "support/sla-p1-2026.pdf"
     ],
     "chunks_retrieved": 3,
-    "retrieval_mode": "hybrid",
-    "timestamp": "2026-04-13T17:51:42.879525"
+    "retrieval_mode": "dense",
+    "timestamp": "2026-04-13T21:13:01.764557"
   }
 ]

@@ -78,7 +78,7 @@ Set `GOOGLE_APPLICATION_CREDENTIALS` to the full path of that JSON file. The bac
 Example for Windows PowerShell:
 
 ```powershell
-$env:GOOGLE_APPLICATION_CREDENTIALS="C:\secure\firebase-service-account.json"
+GOOGLE_APPLICATION_CREDENTIALS="C:\secure\firebase-service-account.json"
 ```
 
 If you want this to persist across terminal sessions, place it in `backend/.env` as shown above.
